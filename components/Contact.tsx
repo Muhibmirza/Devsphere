@@ -39,6 +39,5 @@ export default function Contact(){
     <AnimatePresence>{status!=="idle"&&status!=="loading"&&feedback&&<motion.p role="status" initial={{opacity:0,y:-5}} animate={{opacity:1,y:0}} className={`text-sm ${status==="success"?"text-emerald-400":"text-red-400"}`}>{feedback}</motion.p>}</AnimatePresence>
    </form>
   </div></div>
-  <footer className="flex flex-col gap-3 py-8 text-xs text-muted sm:flex-row sm:justify-between"><span>© {new Date().getFullYear()} Muhib Mirza</span><span>Designed &amp; engineered in Karachi.</span></footer>
  </div></section>
 }
