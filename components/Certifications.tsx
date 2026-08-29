@@ -3,6 +3,7 @@ import Image from "next/image";
 import { BadgeCheck } from "lucide-react";
 import { Heading, Reveal } from "./Section";
 const certs=[
+ ["/images/anthropic-logo.svg","Claude in Action","Anthropic","Practical certification demonstrating how to work effectively with Claude and apply it to real-world workflows."],
  ["/images/aptech-logo.png","Higher Diploma in Software Engineering (HDSE)","Aptech Pakistan","Diploma covering software engineering fundamentals, full-stack development, and database design."],
  ["/images/aaapparels-logo.png","IT Infrastructure Certificate","Amna Ashraf Apparels","Awarded for leading IT infrastructure, network management, and automated backup systems for company servers, file storage, and ERP software."],
  ["/images/sysborg-logo.png","Next.js Developer Certificate","SYSBORG","Awarded for contributions to frontend & backend modules and Next.js development work during tenure (2021–2023)."],
