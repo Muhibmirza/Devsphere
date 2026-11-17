@@ -12,7 +12,7 @@ export default function Contact(){
   const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),15000);
   try{
    const body={...Object.fromEntries(new FormData(form)),_subject:"New DevSphere project inquiry",_template:"table",_honey:""};
-   const response=await fetch("https://formsubmit.co/ajax/muhibmirza58@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body),signal:controller.signal});
+   const response=await fetch("https://formsubmit.co/ajax/devsphere.cop@gmail.com",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body),signal:controller.signal});
    const data=await response.json().catch(()=>({}));
    if(!response.ok)throw new Error(data.error||"Unable to send your message.");
    setStatus("success");setFeedback("Message sent! DevSphere will get back to you soon.");form.reset();
@@ -22,7 +22,7 @@ export default function Contact(){
   }finally{clearTimeout(timeout)}
  }
  const links=[
-  [Mail,"mailto:Muhibmirza58@gmail.com","Muhibmirza58@gmail.com"],
+  [Mail,"mailto:devsphere.cop@gmail.com","devsphere.cop@gmail.com"],
   [Phone,"tel:+923012588832","+92 301 2588832"],
   [Github,"https://github.com/Muhibmirza","GitHub"],
   [Linkedin,"https://www.linkedin.com/in/muhib-mirza","LinkedIn"]

@@ -13,9 +13,9 @@ export async function POST(request: Request) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>",
-      to: "muhibmirza58@gmail.com",
+      to: "devsphere.cop@gmail.com",
       replyTo: email,
-      subject: `Portfolio message from ${name}`,
+      subject: `DevSphere website message from ${name}`,
       text: `From: ${name} <${email}>\n\n${message}`,
     });
     if (error) throw error;
