@@ -1,26 +1,28 @@
 "use client";
+import Image from "next/image";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ExternalLink, Globe2 } from "lucide-react";
-import { Heading } from "./Section";
-const projects=[
-["E COMMERCE","Laravel, Tailwind","github","https://github.com/Muhibmirza/laravel-ecommerce","A polished Laravel commerce experience."],
-["LMS","Next.js, Node.js, MongoDB","live","https://100bmac.devsliconsystems.com/","Learning platform for U.S.-based client, 100 Men of Orange County."],
-["Car Show Room Website","PHP, MySQL","github","https://github.com/Muhibmirza/PHP-CarShowRoom","Vehicle inventory and showroom management."],
-["Amna Ashraf Apparels","PHP, MySQL","live","https://aaapparels.com/","Corporate web presence for an apparel manufacturer."],
-["Savyx Garments Store","Next.js, Express, PostgreSQL","live","http://wholesale.savyxintl.com/","A modern wholesale garments storefront."],
-["Admin-Panel ESH","PHP, MySQL","github","https://github.com/Muhibmirza/PHP-Admin-Panel-ESH","Operations dashboard for Eastern Sweets House."],
-["Mega Shipping Agency","PHP, MySQL","github","https://github.com/Muhibmirza/PHP-Mega-Shipping-Agency","Business workflows for a shipping agency."],
-["Gaming Zone Website","PHP, MySQL","github","https://github.com/Muhibmirza/https-gaming.com.io","Gaming catalog and community web experience."],
-["Covid 19 TMS","PHP, MySQL","github","https://github.com/Muhibmirza/PHP-Covid-19-tms","Testing management and tracking system."],
-["ERP Software for Sweets Shop","PHP, MySQL","github","https://github.com/Muhibmirza/ERP-software-For-sweets-shop.git","Full ERP workflow for a retail sweets business."],
-["Stack Web App","Next.js","github","https://github.com/Unified-ED-tech-Platform/stack-frontend.git","Unified education technology frontend."],
-["BlueDash.ai","Next.js","github","https://github.com/HarisKhan9881/bluedash_frontend.git","SaaS course builder, portal, video editor, docs and recording tools built over two years."],
-["Currency Converter","React, NestJS","github","https://github.com/Muhibmirza/currencyconverter.git","Technical assessment with live conversion workflows."],
-["AI Scrapper Bot","Python","github","https://github.com/Muhibmirza/AI_scrapper_bot.git","AI-powered web data extraction automation."],
-["Eastern Sweets","PHP, MySQL, Payments","github","https://github.com/Muhibmirza/E-Commerce-Eastern-Sweets.git","Commerce with JazzCash, Easypaisa and PayFast integration."],
-["AA Packages","PHP, MySQL, Payments","github","https://github.com/Muhibmirza/AA_Pacakges_Website-.git","Packaging commerce platform with local payment integrations."],
-["Darbar Sweets","PHP, MySQL, E-Commerce","github","https://github.com/Muhibmirza/Darbar_sweets_shop_Website.git","Online sweets shop with a complete product catalog and ordering experience."]
-];
-function GithubIcon({size=20}:{size?:number}){return <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.4c.58.1.79-.25.79-.56v-2.02c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.78 1.2 1.78 1.2 1.04 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.57-.29-5.27-1.28-5.27-5.69 0-1.26.45-2.29 1.2-3.09-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.32c.98 0 1.95.13 2.87.39 2.19-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.75.8 1.2 1.83 1.2 3.09 0 4.42-2.71 5.39-5.29 5.68.42.36.79 1.07.79 2.16v3.03c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg>}
-function Card({p,i}:{p:string[];i:number}){const x=useMotionValue(0),y=useMotionValue(0);const rx=useSpring(useTransform(y,[-.5,.5],[5,-5]));const ry=useSpring(useTransform(x,[-.5,.5],[-6,6]));return <motion.article style={{rotateX:rx,rotateY:ry,transformStyle:"preserve-3d"}} onMouseMove={e=>{const r=e.currentTarget.getBoundingClientRect();x.set((e.clientX-r.left)/r.width-.5);y.set((e.clientY-r.top)/r.height-.5)}} onMouseLeave={()=>{x.set(0);y.set(0)}} initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{delay:(i%4)*.06}} className="glass group flex min-h-72 flex-col rounded-3xl p-7 transition-colors hover:border-[color:var(--accent)] hover:shadow-glow"><div className="text-[10px] font-bold uppercase tracking-[.2em] text-accent2">0{String(i+1).padStart(2,"0")} / Selected work</div><h3 className="mt-9 font-display text-2xl font-bold leading-tight">{p[0]}</h3><p className="mt-3 text-sm leading-6 text-muted">{p[4]}</p><div className="mt-auto flex items-end justify-between pt-7"><div className="flex flex-wrap gap-1.5">{p[1].split(", ").map(t=><span key={t} className="translate-y-1 rounded-full border border-[var(--glass-border)] px-2.5 py-1 text-[10px] opacity-70 transition group-hover:translate-y-0 group-hover:opacity-100">{t}</span>)}</div><a href={p[3]} target="_blank" rel="noreferrer" aria-label={`Open ${p[0]}`} className="ml-3 grid h-11 w-11 shrink-0 place-items-center rounded-full bg-fg text-bg transition hover:scale-110">{p[2]==="github"?<GithubIcon/>:<span className="flex"><Globe2 size={18}/><ExternalLink size={10}/></span>}</a></div></motion.article>}
-export default function Projects(){return <section id="projects" className="section"><div className="container"><Heading eyebrow="Selected projects" title={<>Products that <span className="accent-text">ship.</span></>} copy="From business-critical PHP systems to AI-enabled SaaS and modern Next.js platforms."/><div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">{projects.map((p,i)=><Card key={p[0]} p={p} i={i}/>)}</div></div></section>}
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { Heading, Reveal } from "./Section";
+
+const capabilities=["Bookings & manifests","Customer and carrier directory","Accounting & reports","Role-based administration","Audit logs","Mobile staff access"];
+
+export default function Projects(){
+  const x=useMotionValue(0),y=useMotionValue(0);
+  const rx=useSpring(useTransform(y,[-.5,.5],[7,-7]));
+  const ry=useSpring(useTransform(x,[-.5,.5],[-9,9]));
+  return <section id="work" className="section overflow-hidden"><div className="container">
+    <Heading eyebrow="Featured client work" title={<>Software that runs a <span className="accent-text">real business.</span></>} copy="Our current featured engagement: a purpose-built courier management platform for N.R Cargo Movers."/>
+    <div className="mt-14 grid items-center gap-12 lg:grid-cols-[.82fr_1.18fr]">
+      <Reveal><div className="glass rounded-[2rem] p-7 sm:p-9"><div className="flex items-center gap-4"><Image src="/images/devsphere/nr-cargo-logo.png" alt="N.R Cargo Movers" width={76} height={76} className="rounded-2xl"/><div><p className="text-[10px] font-bold uppercase tracking-[.2em] text-accent2">Client 01</p><h3 className="mt-1 font-display text-2xl font-bold">N.R Cargo Movers</h3><p className="text-sm text-muted">Door to Door Service</p></div></div><h4 className="mt-9 font-display text-3xl font-bold leading-tight">Courier operations, brought into one clear system.</h4><p className="mt-5 text-sm leading-7 text-muted">DevSphere built a centralized courier management experience for handling bookings, manifests, customers, carriers, accounts, reports and administration from one responsive dashboard.</p><div className="mt-7 grid gap-3 sm:grid-cols-2">{capabilities.map(item=><span key={item} className="flex items-center gap-2 text-xs font-semibold"><CheckCircle2 size={16} className="text-accent2"/>{item}</span>)}</div><a className="btn btn-ghost mt-9" href="#contact">Build a system like this <ArrowUpRight size={15}/></a></div></Reveal>
+      <motion.div className="relative py-10" style={{perspective:1200}} onMouseMove={e=>{const r=e.currentTarget.getBoundingClientRect();x.set((e.clientX-r.left)/r.width-.5);y.set((e.clientY-r.top)/r.height-.5)}} onMouseLeave={()=>{x.set(0);y.set(0)}}>
+        <div className="absolute inset-[12%] -z-10 rounded-full bg-accent/30 blur-[90px]"/>
+        <motion.div style={{rotateX:rx,rotateY:ry,transformStyle:"preserve-3d"}} initial={{opacity:0,y:60,rotateX:10}} whileInView={{opacity:1,y:0,rotateX:0}} viewport={{once:true}} transition={{duration:.9,ease:[.22,1,.36,1]}} className="relative rounded-[1.4rem] border border-white/15 bg-[#101226] p-2 shadow-[0_45px_100px_rgba(0,0,0,.45)]">
+          <div className="flex h-8 items-center gap-1.5 px-3"><span className="h-2.5 w-2.5 rounded-full bg-red-400/80"/><span className="h-2.5 w-2.5 rounded-full bg-amber-300/80"/><span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80"/><span className="ml-3 text-[9px] uppercase tracking-[.22em] text-white/40">DevSphere / Operations Console</span></div>
+          <div className="relative aspect-[1.86/1] overflow-hidden rounded-xl"><Image src="/images/devsphere/nr-cargo-dashboard.png" alt="N.R Cargo Movers courier management dashboard built by DevSphere" fill sizes="(max-width: 1024px) 100vw, 60vw" className="object-cover"/></div>
+        </motion.div>
+        <div className="mx-auto h-5 w-[74%] rounded-b-[2rem] bg-gradient-to-b from-slate-500 to-slate-800 shadow-xl"/><div className="mx-auto h-2 w-[38%] rounded-b-full bg-slate-900/60"/>
+      </motion.div>
+    </div>
+    <Reveal className="mt-20"><div className="rounded-[2rem] border border-[var(--glass-border)] bg-gradient-to-br from-[color:var(--accent)]/15 to-[color:var(--accent-secondary)]/5 p-8 sm:p-12"><p className="section-label">Beyond the case study</p><div className="grid gap-7 lg:grid-cols-[1fr_.8fr] lg:items-end"><h3 className="font-display text-3xl font-bold leading-tight sm:text-5xl">The same product thinking, applied to your POS, ERP, website or mobile idea.</h3><p className="text-sm leading-7 text-muted">Every business works differently. We shape the interface, data and workflows around the way yours actually operates—not around a generic template.</p></div></div></Reveal>
+  </div></section>
+}

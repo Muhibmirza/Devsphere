@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
-export const metadata:Metadata={title:"Service Delivery Policy | Muhib Mirza Development Services",description:"How development services, project milestones, support, and digital access are delivered."};
+export const metadata:Metadata={title:"Service Delivery Policy | DevSphere",description:"How DevSphere services, project milestones, support, and digital access are delivered."};
 const sections=[
  {title:"Delivery Method",paragraphs:["Services are delivered remotely and electronically. Deliverables may include deployed websites or applications, source-code repositories, design files, documentation, credentials, reports, recorded demonstrations, or access to a hosted SaaS product. Delivery channels are agreed during project onboarding."]},
  {title:"Project Stages and Milestones",paragraphs:["Custom projects are normally delivered through milestones such as discovery, interface approval, development, testing, deployment, and handover. Milestone content and acceptance criteria are documented in the proposal, scope, contract, invoice, or project correspondence. Clients are responsible for timely feedback, content, access, and approvals."]},
@@ -9,4 +9,4 @@ const sections=[
  {title:"Support and Post-Delivery",paragraphs:["A testing or support period may be included in the project agreement. During this period, reproducible defects in agreed functionality are addressed according to scope. New features, third-party changes, content updates, training, maintenance, hosting, and support outside the included period may require a separate agreement or fee."]},
  {title:"Communication",paragraphs:["Primary communication channels may include email, WhatsApp, scheduled online meetings, telephone, and agreed project-management tools. Formal approvals, scope changes, payment confirmations, and delivery acceptance should be recorded in writing. Contact: Muhibmirza58@gmail.com or +92 301 2588832."]}
 ];
-export default function ServicePolicy(){return <LegalPage eyebrow="Client policy" title="Service Delivery Policy" intro="This policy explains how custom software, digital deliverables, remote services, and hosted product access are provided." updated="1 August 2026" sections={sections}/>}
+export default function ServicePolicy(){return <LegalPage eyebrow="Client policy" title="Service Delivery Policy" intro="This policy explains how DevSphere custom software, digital deliverables, remote services, and hosted product access are provided." updated="18 November 2026" sections={sections}/>}

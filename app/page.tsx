@@ -1,13 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SkillsWorld from "@/components/SkillsWorld";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Certifications from "@/components/Certifications";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Services from "@/components/Services";
+import Process from "@/components/Process";
 
 export default function Home() {
   return (
@@ -15,12 +12,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Services />
-      <SkillsWorld />
-      <About />
-      <Experience />
-      <Education />
-      <Certifications />
       <Projects />
+      <Process />
+      <About />
       <Contact />
     </main>
   );
